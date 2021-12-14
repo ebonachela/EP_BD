@@ -9,10 +9,6 @@ $connect = mysqli_connect($host, $user, $password, $db);
 
 session_start();
 
-if(isset($_SESSION["RG"])){
-    echo $_SESSION["RG"];
-};
-
 ?>
 
 <html>
@@ -25,6 +21,7 @@ if(isset($_SESSION["RG"])){
 
         if($result){
             $dados = mysqli_fetch_array($result);
+            echo $dados['NOME'] . '<br>';
             echo $dados['RG'] . '<br>';
             echo $dados['DATA_NASC'] . '<br>';
             echo $dados['ETNIA'] . '<br>';

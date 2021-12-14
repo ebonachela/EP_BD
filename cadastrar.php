@@ -9,6 +9,7 @@ $connect = mysqli_connect($host, $user, $password, $db);
 
 if(isset($_POST['rg'])){
     $rg = $_POST['rg'];
+    $nome = $_POST['nome'];
     $data = $_POST['data'];
     $etnia = $_POST['etnia'];
     $genero = $_POST['genero'];
@@ -16,7 +17,7 @@ if(isset($_POST['rg'])){
     $cep = $_POST['cep'];
     $senha = $_POST['senha'];
 
-    $sql = "INSERT INTO PACIENTE VALUES('".$rg."', '".$data."', '".$etnia."', '".$genero."', '".$nacionalidade."', '".$cep."', '".$senha."');";
+    $sql = "INSERT INTO PACIENTE VALUES('".$rg."', '".$nome."', '".$data."', '".$etnia."', '".$genero."', '".$nacionalidade."', '".$cep."', '".$senha."');";
 
     echo $sql;
 
@@ -39,6 +40,9 @@ if(isset($_POST['rg'])){
         <form method="POST" action="#">
             <label for="rg">RG:</label><br>
             <input type="text" id="rg" name="rg"><br>
+
+            <label for="nome">Nome Completo:</label><br>
+            <input type="text" id="nome" name="nome"><br>
 
             <label for="data">Data de Nascimento:</label><br>
             <input type="text" id="data" name="data"><br>
