@@ -9,8 +9,13 @@ $connect = mysqli_connect($host, $user, $password, $db);
 
 session_start();
 
-if(isset($_SESSION["RG"])){
-    header("Location: paciente.php"); 
+if(isset($_SESSION["TIPO"])){
+    if($conta == 'Paciente'){
+        header("Location: paciente.php"); 
+    } else {
+        header("Location: funcionario.php"); 
+    }
+
     exit();
 };
 
@@ -33,6 +38,7 @@ if(isset($_POST['rg'])){
     
     if(mysqli_num_rows($result)==1){
         $_SESSION["RG"] = $uname;
+        $_SESSION["TIPO"] = $tipo;
 
         echo " Logado com sucesso! ";
 
