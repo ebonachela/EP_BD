@@ -45,7 +45,7 @@ if(isset($_POST['rg'])){
         <label for="rg">RG:</label><br>
         <input type="text" id="rg" name="rg"><br>
         <label for="senha">Senha:</label><br>
-        <input type="text" id="senha" name="senha"><br>
+        <input type="password" id="senha" name="senha"><br>
         <input type="submit" value="Entrar">
     </form>
 
