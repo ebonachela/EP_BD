@@ -17,5 +17,6 @@ session_start();
 
         <p>Funcionário</p>
 
+        <button onclick="window.location.href='sair.php'">Sair</button>
     </body>
 </html>
