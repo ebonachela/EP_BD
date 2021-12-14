@@ -26,6 +26,7 @@ if(isset($_POST['rg'])){
         $_SESSION["RG"] = $uname;
 
         echo " Logado com sucesso! ";
+        header("Location: paciente.php"); 
         exit();
     }
     else{

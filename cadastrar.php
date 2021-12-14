@@ -16,7 +16,17 @@ if(isset($_POST['rg'])){
     $cep = $_POST['cep'];
     $senha = $_POST['senha'];
 
-    $sql = "INSERT INTO PACIENTE VALUES('.$rg.')";
+    $sql = "INSERT INTO PACIENTE VALUES('".$rg."', '".$data."', '".$etnia."', '".$genero."', '".$nacionalidade."', '".$cep."', '".$senha."');";
+
+    echo $sql;
+
+    if(mysqli_query($connect, $sql)){
+        echo " Cadastro feito com sucesso! ";
+        die();
+    } else {
+        echo " Erro ao realizar cadastro! ";
+        die();
+    }
 }
 
 ?>
