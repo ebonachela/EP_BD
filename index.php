@@ -10,7 +10,8 @@ $connect = mysqli_connect($host, $user, $password, $db);
 session_start();
 
 if(isset($_SESSION["RG"])){
-    echo $_SESSION["RG"];
+    header("Location: paciente.php"); 
+    exit();
 };
 
 if(isset($_POST['rg'])){
