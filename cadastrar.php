@@ -19,14 +19,10 @@ if(isset($_POST['rg'])){
 
     $sql = "INSERT INTO PACIENTE VALUES('".$rg."', '".$nome."', '".$data."', '".$etnia."', '".$genero."', '".$nacionalidade."', '".$cep."', '".$senha."');";
 
-    echo $sql;
-
     if(mysqli_query($connect, $sql)){
         echo " Cadastro feito com sucesso! ";
-        die();
     } else {
         echo " Erro ao realizar cadastro! ";
-        die();
     }
 }
 
@@ -35,7 +31,7 @@ if(isset($_POST['rg'])){
 <html>
     <body>
 
-        <p>Cadastrar</p>
+        <p>Cadastrar Paciente</p>
 
         <form method="POST" action="#">
             <label for="rg">RG:</label><br>
@@ -79,5 +75,6 @@ if(isset($_POST['rg'])){
             <input type="submit" value="Enviar">
         </form>
 
+        <button onclick="window.location.href='index.php'">Voltar</button>
     </body>
 </html>

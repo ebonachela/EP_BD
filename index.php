@@ -52,7 +52,6 @@ if(isset($_POST['rg'])){
     }
     else{
         echo " Você digitou a senha incorreta. ";
-        exit();
     }
         
 }
