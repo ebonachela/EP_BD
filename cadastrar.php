@@ -54,10 +54,10 @@ if(isset($_POST['rg'])){
 
             <label for="genero">Gênero:</label><br>
             <select name="genero" id="genero" style="width: 170px">
-                <option value="Mulher">Mulher</option>
-                <option value="Homem">Homem</option>
-                <option value="Outro">Outro</option>
-                <option value="Prefiro não dizer">Prefiro não dizer</option>
+                <option value="mulher">Mulher</option>
+                <option value="momem">Homem</option>
+                <option value="outro">Outro</option>
+                <option value="prefiro não dizer">Prefiro não dizer</option>
             </select><br>
 
             <label for="nacionalidade">Nacionalidade:</label><br>
