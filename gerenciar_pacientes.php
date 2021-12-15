@@ -79,7 +79,7 @@ session_start();
                                     <form action="cadastrar_funcionario.php" method="post" style="display: inline;">
                                         <button name="atualizar" value="'.$linha['RG'].'" style="margin-right: 5px">Alterar</button>
                                     </form>
-                                    <form action="remover_funcionario.php" method="post" style="display: inline;">
+                                    <form action="remover_paciente.php" method="post" style="display: inline;">
                                         <button name="remover" value="'.$linha['RG'].'" style="margin-right: 5px">Remover</button>
                                     </form>
                                 </td>';

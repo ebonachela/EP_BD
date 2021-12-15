@@ -26,7 +26,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
 
     if(mysqli_query($connect, $sql)){
         echo " Cadastro feito com sucesso! ";
-        header("Location: funcionario.php"); 
+        header("Location: gerenciar_funcionarios.php"); 
         die();
 
     } else {
