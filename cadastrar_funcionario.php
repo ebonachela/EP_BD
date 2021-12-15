@@ -32,7 +32,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
     } else {
         echo " Erro ao realizar cadastro! ";
         die();
-        
+
     }
 
 } else if(isset($_POST['atualizar'])){
@@ -63,7 +63,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
 
         <form method="POST" action="#">
             <label for="rg">RG:</label><br>
-            <input type="text" id="rg" name="rg" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$rg.'"' : ''; ?>><br>
+            <input type="text" id="rg" name="rg" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$rg.'" disabled' : ''; ?>><br>
 
             <label for="nome">Nome Completo:</label><br>
             <input type="text" id="nome" name="nome" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nome.'"' : ''; ?>><br>
