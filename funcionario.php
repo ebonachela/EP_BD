@@ -19,6 +19,7 @@ session_start();
 
         <button onclick="window.location.href='gerenciar_funcionarios.php'">Gerenciar funcionários</button>
         <button onclick="window.location.href='gerenciar_pacientes.php'">Gerenciar pacientes</button>
+        <button onclick="window.location.href='aplicar_dose.php'">Aplicar dose</button>
         <button onclick="window.location.href='sair.php'">Sair</button>
     </body>
 </html>
