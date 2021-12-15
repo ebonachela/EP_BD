@@ -21,18 +21,15 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
         $sql = "INSERT INTO FUNCIONARIO VALUES('".$rg."', '".$nome."', '".$data."', '".$hora."', '".$salario."', '".$cep."', '".$cnes."', '".$senha."');";
     } else {
         $saferg = isset($_POST['update']);
-        $sql = "UPDATE FUNCIONARIO SET RG = '".$rg."', NOME = '".$nome."', DATA_NASC = '".$data."', HORA_INICIO = '".$hora."', SALARIO = '".$salario."', CEP = '".$cep."', CNES_ESTABELEC = '".$cnes."', SENHA = '".$senha."' WHERE RG = '".$rg."'";
+        $sql = "UPDATE FUNCIONARIO SET NOME = '".$nome."', DATA_NASC = '".$data."', HORA_INICIO = '".$hora."', SALARIO = '".$salario."', CEP = '".$cep."', CNES_ESTABELEC = '".$cnes."', SENHA = '".$senha."' WHERE RG = '".$rg."'";
     }
 
     if(mysqli_query($connect, $sql)){
         echo " Cadastro feito com sucesso! ";
         header("Location: gerenciar_funcionarios.php"); 
-        die();
-
     } else {
         echo " Erro ao realizar cadastro! ";
         die();
-
     }
 
 } else if(isset($_POST['atualizar'])){
@@ -63,7 +60,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
 
         <form method="POST" action="#">
             <label for="rg">RG:</label><br>
-            <input type="text" id="rg" name="rg" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$rg.'" disabled' : ''; ?>><br>
+            <input type="text" id="rg" name="rg" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$rg.'"' : ''; ?>><br>
 
             <label for="nome">Nome Completo:</label><br>
             <input type="text" id="nome" name="nome" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nome.'"' : ''; ?>><br>
@@ -86,7 +83,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
             <label for="senha">Senha:</label><br>
             <input type="password" id="senha" name="senha" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$senha.'"' : ''; ?>><br>
 
-            <input type="submit" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?> value="Enviar">
+            <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
         </form>
 
         <button onclick="window.location.href='gerenciar_funcionarios.php'">Voltar</button>

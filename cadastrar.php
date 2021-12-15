@@ -20,7 +20,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
     if(!isset($_POST['update'])) {
         $sql = "INSERT INTO PACIENTE VALUES('".$rg."', '".$nome."', '".$data."', '".$etnia."', '".$genero."', '".$nacionalidade."', '".$cep."', '".$senha."');";
     } else {
-        $sql = "UPDATE FUNCIONARIO SET RG = '".$rg."', DATA_NASC = '".$data."', ETNIA = '".$etnia."', GENERO = '".$genero."', NACIONALIDADE = '".$nacionalidade."', CEP = '".$cep."', senha = '".$senha."' WHERE RG = '".$rg."'";
+        $sql = "UPDATE PACIENTE SET NOME = '".$nome."', DATA_NASC = '".$data."', ETNIA = '".$etnia."', GENERO = '".$genero."', NACIONALIDADE = '".$nacionalidade."', CEP = '".$cep."', senha = '".$senha."' WHERE RG = '".$rg."'";
     }
 
     if(mysqli_query($connect, $sql)){
@@ -60,7 +60,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
 
         <form method="POST" action="#">
             <label for="rg">RG:</label><br>
-            <input type="text" id="rg" name="rg" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$rg.'" disabled' : ''; ?>><br>
+            <input type="text" id="rg" name="rg" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$rg.'"' : ''; ?>><br>
 
             <label for="nome">Nome Completo:</label><br>
             <input type="text" id="nome" name="nome" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nome.'"' : ''; ?>><br>
