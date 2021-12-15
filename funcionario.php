@@ -71,7 +71,15 @@ session_start();
                             echo '<td>R$'.$linha['SALARIO'].'</td>';
                             echo '<td>'.$linha['CEP'].'</td>';
                             echo '<td>'.$linha['CNES_ESTABELEC'].'</td>';
-                            echo '<td><button style="margin-right: 5px">Alterar</button><button>Remover</button></td>';
+                            
+                            echo 
+                                '<td>
+                                    <form action="cadastrar_funcionario.php" method="post">
+                                        <button name="atualizar" value="'.$linha['RG'].'" style="margin-right: 5px">Alterar</button>
+                                    </form>
+                                    <button>Remover</button>
+                                </td>';
+
                             echo '</tr>';
 
                         }
