@@ -21,7 +21,7 @@ session_start();
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
-            width: 60%;
+            width: 80%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -45,14 +45,17 @@ session_start();
         <button onclick="window.location.href='sair.php'">Sair</button>
 
         <div>
-            <h4>Lista de funcionários:</h4>
+            <h3 style="text-align: center;">Lista de funcionários</h3>
 
             <table>
                 <tr>
                     <th>Nome</th>
                     <th>RG</th>
                     <th>Hora de início</th>
+                    <th>Salário</th>
+                    <th>CEP</th>
                     <th>CNES</th>
+                    <th>Ação</th>
                 </tr>
 
                 <?php
@@ -65,7 +68,10 @@ session_start();
                             echo '<td>'.$linha['NOME'].'</td>';
                             echo '<td>'.$linha['RG'].'</td>';
                             echo '<td>'.$linha['HORA_INICIO'].'</td>';
+                            echo '<td>R$'.$linha['SALARIO'].'</td>';
+                            echo '<td>'.$linha['CEP'].'</td>';
                             echo '<td>'.$linha['CNES_ESTABELEC'].'</td>';
+                            echo '<td><button style="margin-right: 5px">Alterar</button><button>Remover</button></td>';
                             echo '</tr>';
 
                         }
