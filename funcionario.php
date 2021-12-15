@@ -59,7 +59,7 @@ session_start();
                 </tr>
 
                 <?php
-                    $resultado = mysqli_query($connect, "SELECT * FROM FUNCIONARIO"); 
+                    $resultado = mysqli_query($connect, "SELECT * FROM FUNCIONARIO ORDER BY NOME"); 
 
                     if($resultado){
                         while($linha = $resultado->fetch_assoc()) {
@@ -74,10 +74,12 @@ session_start();
                             
                             echo 
                                 '<td>
-                                    <form action="cadastrar_funcionario.php" method="post">
+                                    <form action="cadastrar_funcionario.php" method="post" style="display: inline;">
                                         <button name="atualizar" value="'.$linha['RG'].'" style="margin-right: 5px">Alterar</button>
                                     </form>
-                                    <button>Remover</button>
+                                    <form action="remover_funcionario.php" method="post" style="display: inline;">
+                                        <button name="remover" value="'.$linha['RG'].'" style="margin-right: 5px">Remover</button>
+                                    </form>
                                 </td>';
 
                             echo '</tr>';

@@ -7,8 +7,6 @@ $db = "vacinacao";
 
 $connect = mysqli_connect($host, $user, $password, $db);
 
-echo mysqli_error($connect);
-
 if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
     $rg = $_POST['rg'];
     $nome = $_POST['nome'];
@@ -28,9 +26,13 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
 
     if(mysqli_query($connect, $sql)){
         echo " Cadastro feito com sucesso! ";
+        header("Location: funcionario.php"); 
+        die();
+
     } else {
         echo " Erro ao realizar cadastro! ";
         die();
+        
     }
 
 } else if(isset($_POST['atualizar'])){
