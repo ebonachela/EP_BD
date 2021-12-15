@@ -10,7 +10,7 @@ $connect = mysqli_connect($host, $user, $password, $db);
 session_start();
 
 if(isset($_SESSION["TIPO"])){
-    if($conta == 'Paciente'){
+    if($_SESSION["TIPO"] == 'PACIENTE'){
         header("Location: paciente.php"); 
     } else {
         header("Location: funcionario.php"); 
