@@ -5,6 +5,6 @@ unset($_SESSION["RG"]);
 unset($_SESSION["TIPO"]);
 session_destroy();
 
-header("Location: index.php"); 
+header("Location: ../index.php"); 
 
 ?>

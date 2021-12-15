@@ -31,6 +31,6 @@ session_start();
         }
     ?>
 
-    <button onclick="window.location.href='sair.php'">Sair</button>
+    <button onclick="window.location.href='../api/sair.php'">Sair</button>
 
 </html>

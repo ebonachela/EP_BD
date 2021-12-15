@@ -11,9 +11,9 @@ session_start();
 
 if(isset($_SESSION["TIPO"])){
     if($_SESSION["TIPO"] == 'PACIENTE'){
-        header("Location: paciente.php"); 
+        header("Location: ./paginas/paciente.php"); 
     } else {
-        header("Location: funcionario.php"); 
+        header("Location: ./paginas/funcionario.php"); 
     }
 
     exit();
@@ -43,9 +43,9 @@ if(isset($_POST['rg'])){
         echo " Logado com sucesso! ";
 
         if($conta == 'Paciente'){
-            header("Location: paciente.php"); 
+            header("Location: ./paginas/paciente.php"); 
         } else {
-            header("Location: funcionario.php"); 
+            header("Location: ./paginas/funcionario.php"); 
         }
         
         exit();
@@ -75,5 +75,5 @@ if(isset($_POST['rg'])){
         <input type="submit" value="Entrar">
     </form>
 
-    <button onclick="window.location.href='cadastrar.php'">Cadastrar</button>
+    <button onclick="window.location.href='./cadastro/cadastrar.php'">Cadastrar</button>
 </html>

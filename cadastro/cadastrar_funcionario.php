@@ -26,7 +26,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
 
     if(mysqli_query($connect, $sql)){
         echo " Cadastro feito com sucesso! ";
-        header("Location: gerenciar_funcionarios.php"); 
+        header("Location: ../gerenciador/gerenciar_funcionarios.php"); 
     } else {
         echo " Erro ao realizar cadastro! ";
         die();
@@ -86,6 +86,6 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
             <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
         </form>
 
-        <button onclick="window.location.href='gerenciar_funcionarios.php'">Voltar</button>
+        <button onclick="window.location.href='../gerenciador/gerenciar_funcionarios.php'">Voltar</button>
     </body>
 </html>

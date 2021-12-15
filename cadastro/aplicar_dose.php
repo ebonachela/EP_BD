@@ -51,7 +51,7 @@ if(isset($_POST['lote'])){
             <input type="submit" value="Enviar">
         </form>
 
-        <button onclick="window.location.href='funcionario.php'">Voltar</button>
+        <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
     </body>
 
 </html>

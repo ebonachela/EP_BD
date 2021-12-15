@@ -25,7 +25,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
 
     if(mysqli_query($connect, $sql)){
         echo " Cadastro feito com sucesso! ";
-        header("Location: gerenciar_pacientes.php"); 
+        header("Location: ../gerenciador/gerenciar_pacientes.php"); 
         die();
     } else {
         echo " Erro ao realizar cadastro! ";
@@ -100,6 +100,6 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
             <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
         </form>
 
-        <button onclick="window.location.href='index.php'">Voltar</button>
+        <button onclick="window.location.href='../index.php'">Voltar</button>
     </body>
 </html>
