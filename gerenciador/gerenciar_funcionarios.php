@@ -6,6 +6,7 @@ $password = "";
 $db = "vacinacao";
 
 $connect = mysqli_connect($host, $user, $password, $db);
+mysqli_set_charset($connect,"utf8mb4");
 
 session_start();
 
@@ -21,7 +22,7 @@ session_start();
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
-            width: 80%;
+            width: 90%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -55,11 +56,13 @@ session_start();
                     <th>Salário</th>
                     <th>CEP</th>
                     <th>CNES</th>
+                    <th>Dependente</th>
+                    <th>Parentesco</th>
                     <th>Ação</th>
                 </tr>
 
                 <?php
-                    $resultado = mysqli_query($connect, "SELECT * FROM FUNCIONARIO ORDER BY NOME"); 
+                    $resultado = mysqli_query($connect, "SELECT funcionario.RG, funcionario.NOME, funcionario.DATA_NASC, funcionario.HORA_INICIO, funcionario.SALARIO, funcionario.CEP, funcionario.CNES_ESTABELEC, funcionario.SENHA, dependente.RG as RG_DEPENDENTE, dependente.NOME as NOME_DEPENDENTE, dependente.PARENTESCO FROM funcionario INNER JOIN dependente ON dependente.RG_FUNCIONARIO = funcionario.rg ORDER BY NOME"); 
 
                     if($resultado){
                         while($linha = $resultado->fetch_assoc()) {
@@ -71,6 +74,8 @@ session_start();
                             echo '<td>R$'.$linha['SALARIO'].'</td>';
                             echo '<td>'.$linha['CEP'].'</td>';
                             echo '<td>'.$linha['CNES_ESTABELEC'].'</td>';
+                            echo '<td>'.$linha['NOME_DEPENDENTE'].'</td>';
+                            echo '<td>'.$linha['PARENTESCO'].'</td>';
                             
                             echo 
                                 '<td>
