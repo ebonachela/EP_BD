@@ -76,7 +76,7 @@ session_start();
                             
                             echo 
                                 '<td>
-                                    <form action="cadastrar_funcionario.php" method="post" style="display: inline;">
+                                    <form action="cadastrar.php" method="post" style="display: inline;">
                                         <button name="atualizar" value="'.$linha['RG'].'" style="margin-right: 5px">Alterar</button>
                                     </form>
                                     <form action="remover_paciente.php" method="post" style="display: inline;">

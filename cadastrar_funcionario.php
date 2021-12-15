@@ -89,6 +89,6 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
             <input type="submit" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?> value="Enviar">
         </form>
 
-        <button onclick="window.location.href='funcionario.php'">Voltar</button>
+        <button onclick="window.location.href='gerenciar_funcionarios.php'">Voltar</button>
     </body>
 </html>
