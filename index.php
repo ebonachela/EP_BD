@@ -57,21 +57,72 @@ if(isset($_POST['rg'])){
 ?>
 
 <html>
-    <p>Página de Login</p>
-    <form method="POST" action="#">
-        <label for="rg">RG:</label><br>
-        <input type="text" id="rg" name="rg"><br>
-        <label for="senha">Senha:</label><br>
-        <input type="password" id="senha" name="senha"><br><br>
+    <style>
+        body { 
+            text-align: center; 
+        }
 
-        <label for="conta">Conta:</label>
-        <select name="conta" id="conta" style="width: 122px">
-            <option value="Paciente">Paciente</option>
-            <option value="Funcionario">Funcionário</option>
-        </select><br><br>
+        .container {
+            margin-top: 30px;
+        }
 
-        <input type="submit" value="Entrar">
-    </form>
+        h3 {
+            text-align: center;
+        }
 
-    <button onclick="window.location.href='./cadastro/cadastrar.php'">Cadastrar</button>
+        #entrarinput {
+            text-align: center;
+            width: 80px;
+        }
+
+        #containerentrar{
+            text-align: center;
+        }
+
+        button {
+            width: 80px;
+        }
+
+        form {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+    </style>
+    <body>
+        <div class="container">
+            <h1>Posto de Vacinação</h1>
+            <h3>Página de Login</h3>
+            <div>
+                <form method="POST" action="#">
+                    <label for="rg">RG:</label><br>
+                    <input type="text" id="rg" name="rg"><br>
+                    <label for="senha">Senha:</label><br>
+                    <input type="password" id="senha" name="senha"><br><br>
+
+                    <label for="conta">Conta:</label>
+                    <select name="conta" id="conta" style="width: 122px">
+                        <option value="Paciente">Paciente</option>
+                        <option value="Funcionario">Funcionário</option>
+                    </select><br><br>
+
+                    <div id="containerentrar">
+                        <input id="entrarinput" type="submit" value="Entrar">
+                    </div>
+                </form>
+            </div>
+
+            <button onclick="window.location.href='./cadastro/cadastrar.php'">Cadastrar</button>
+
+            <div style="text-align: center;">
+                <h3>Grupo:</h3>
+                <p>Bruno Henrique de Souza Jeannine Rocha - NUSP: 11207971</p>
+                <p>Eduardo Bonachela da Silva - NUSP: 11857278</p>
+                <p>Matheus Gireli Conde - NUSP: 10816749</p>
+                <p>Vítor Costa Pinheiro - NUSP: 11819132</p>
+            </div>
+        </div>
+    </body>
 </html>
