@@ -37,9 +37,11 @@ session_start();
     </style>
     <body>
 
-        <p>Gerenciar Pacientes</p>
+        <h2 style="text-align: center; margin-top: 20px">Gerenciar Pacientes</h2>
 
-        <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
+        <div style="display: flex; justify-content: center;">
+            <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
+        </div>
 
         <div>
             <h3 style="text-align: center;">Lista de pacientes</h3>

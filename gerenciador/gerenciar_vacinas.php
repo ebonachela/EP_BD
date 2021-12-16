@@ -37,12 +37,14 @@ session_start();
     </style>
     <body>
 
-        <p>Gerenciar Vacinas</p>
+        <h2 style="text-align: center; margin-top: 20px">Gerenciar Vacinas</h2>
 
-        <button onclick="window.location.href='../cadastro/cadastrar_fabricante.php'">Adicionar fabricantes</button>
-        <button onclick="window.location.href='../cadastro/cadastrar_lote.php'">Adicionar lotes</button>
-        <button onclick="window.location.href='../cadastro/cadastrar_marca.php'">Adicionar marcas</button>
-        <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
+        <div style="display: flex; justify-content: center;">
+            <button onclick="window.location.href='../cadastro/cadastrar_fabricante.php'">Adicionar fabricantes</button>
+            <button onclick="window.location.href='../cadastro/cadastrar_lote.php'">Adicionar lotes</button>
+            <button onclick="window.location.href='../cadastro/cadastrar_marca.php'">Adicionar marcas</button>
+            <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
+        </div>
 
         <div>
             <h3 style="text-align: center;">Lista de fabricantes</h3>

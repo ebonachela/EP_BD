@@ -37,10 +37,12 @@ session_start();
     </style>
     <body>
 
-        <p>Gerenciar Estabelecimentos</p>
+        <h2 style="text-align: center; margin-top: 20px">Gerenciar Estabelecimentos</h2>
 
-        <button onclick="window.location.href='../cadastro/cadastrar_estabelecimento.php'">Adicionar estabelecimento</button>
-        <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
+        <div style="display: flex; justify-content: center;">
+            <button onclick="window.location.href='../cadastro/cadastrar_estabelecimento.php'">Adicionar estabelecimento</button>
+            <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
+        </div>
 
         <div>
             <h3 style="text-align: center;">Lista de estabelecimentos</h3>
