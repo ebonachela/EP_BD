@@ -11,12 +11,16 @@ session_start();
 
 if(isset($_POST['lote'])){
     $lote = $_POST['lote'];
-    $marca = $_POST['marca'];
+
+    $resultado = mysqli_query($connect, "SELECT ID_MARCA FROM LOTE WHERE ID_LOTE = '".$lote."';"); 
+    $dados = mysqli_fetch_array($resultado);
+
+    $marca = $dados['ID_MARCA'];
     $data = $_POST['data'];
     $numerodose = $_POST['numerodose'];
     $rgpaciente = $_POST['rgpaciente'];
 
-    $sql = "INSERT INTO APLICACAO_DOSE VALUES('1', '".$lote."', '".$marca."', '".$data."', '".$numerodose."', '".$rgpaciente."', '".$_SESSION['RG']."');";
+    $sql = "INSERT INTO APLICACAO_DOSE (NUMERO_VACINA, ID_LOTE, ID_MARCA, DATA_APLICACAO, NUMERO_DOSE, RG_PACIENTE, RG_FUNCIONARIO) VALUES('1', '".$lote."', '".$marca."', '".$data."', '".$numerodose."', '".$rgpaciente."', '".$_SESSION['RG']."');";
 
     if(mysqli_query($connect, $sql)){
         echo ' Aplicação realizada com sucesso! ';
@@ -34,10 +38,17 @@ if(isset($_POST['lote'])){
 
         <form method="POST" action="#">
             <label for="lote">ID Lote:</label><br>
-            <input type="text" id="lote" name="lote"><br>
+            <select name="lote" id="lote" style="width: 170px">
+                <?php 
+                    $resultado = mysqli_query($connect, "SELECT * FROM LOTE ORDER BY ID_LOTE"); 
 
-            <label for="marca">ID Marca:</label><br>
-            <input type="text" id="marca" name="marca"><br>
+                    if($resultado){
+                        while($linha = $resultado->fetch_assoc()) {
+                            echo '<option value="'.$linha['ID_LOTE'].'">'.$linha['ID_LOTE'].'</option>';
+                        }
+                    }
+                ?>
+            </select><br>
 
             <label for="data">Data Aplicação:</label><br>
             <input type="text" id="data" name="data"><br>
