@@ -20,7 +20,7 @@ session_start();
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
-            width: 50%;
+            width: 40%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -28,34 +28,48 @@ session_start();
         td, th {
             border: 1px solid #dddddd;
             text-align: left;
-            padding: 8px;
+            padding: 5px;
         }
 
         tr:nth-child(even) {
             background-color: #dddddd;
         }
 
+        h1, h3, p {
+            text-align: center;
+        }
+
+        button {
+            display: block; margin: 0 auto;
+        }
+
     </style>
     <body>
+        <h1>Posto de Vacinação</h1>
+
         <h3>Perfil Paciente</h3>
         
         <div>
-            <?php 
-                $sql = "SELECT * FROM PACIENTE WHERE RG = '".$_SESSION['RG']."'";
-            
-                $result = mysqli_query($connect, $sql);
+            <table>
+                <?php 
+                    $sql = "SELECT * FROM PACIENTE WHERE RG = '".$_SESSION['RG']."'";
+                
+                    $result = mysqli_query($connect, $sql);
 
-                if($result){
-                    $dados = mysqli_fetch_array($result);
-                    echo $dados['NOME'] . '<br>';
-                    echo $dados['RG'] . '<br>';
-                    echo $dados['DATA_NASC'] . '<br>';
-                    echo $dados['ETNIA'] . '<br>';
-                    echo $dados['GENERO'] . '<br>';
-                    echo $dados['NACIONALIDADE'] . '<br>';
-                    echo $dados['CEP'] . '<br>';
-                }
-            ?>
+                    if($result){
+                        $dados = mysqli_fetch_array($result);
+
+                        echo '<tr><th>Nome:</th><td>'.$dados['NOME'].'</td></tr>';
+                        echo '<tr><th>RG:</th><td>'.$dados['RG'].'</td></tr>';
+                        echo '<tr><th>Data de Nascimento:</th><td>'.$dados['DATA_NASC'].'</td></tr>';
+                        echo '<tr><th>Etnia:</th><td>'.$dados['ETNIA'].'</td></tr>';
+                        echo '<tr><th>Gênero:</th><td>'.$dados['GENERO'].'</td></tr>';
+                        echo '<tr><th>Nacionalidade:</th><td>'.$dados['NACIONALIDADE'].'</td></tr>';
+                        echo '<tr><th>CEP:</th><td>'.$dados['CEP'].'</td></tr>';
+                    }
+                ?>
+
+            </table>
         </div>
 
         <div>
@@ -86,12 +100,12 @@ session_start();
 
                     echo '</table>';
                 } else {
-                    echo ' Você ainda não tomou nenhuma vacina. ';
+                    echo ' <p>Você ainda não tomou nenhuma vacina. </p>';
                 }
             ?>
+
+            <br>
+            <button onclick="window.location.href='../api/sair.php'">Sair</button>
         </div>
-        
-        <br>
-        <button onclick="window.location.href='../api/sair.php'">Sair</button>
     </body>
 </html>
