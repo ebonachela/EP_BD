@@ -6,10 +6,10 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['cnpj_fabric']) && !isset($_POST['atualizar'])){
-    $id_marca = $_POST['id_marca'];
-    $validade = $_POST['validade'];
-    $data_fabric = $_POST['data_fabric'];
-    $cnpj_fabric = $_POST['cnpj_fabric'];
+    $id_marca = $db->escape($_POST['id_marca']);
+    $validade = $db->escape($_POST['validade']);
+    $data_fabric = $db->escape($_POST['data_fabric']);
+    $cnpj_fabric = $db->escape($_POST['cnpj_fabric']);
 
 
     if(!isset($_POST['update'])) {
@@ -28,7 +28,7 @@ if(isset($_POST['cnpj_fabric']) && !isset($_POST['atualizar'])){
     }
 
 } else if(isset($_POST['atualizar'])){
-    $id_lote = $_POST['atualizar'];
+    $id_lote = $db->escape($_POST['atualizar']);
 
     $sql = "SELECT * FROM LOTE WHERE ID_LOTE = '".$id_lote."';";
     

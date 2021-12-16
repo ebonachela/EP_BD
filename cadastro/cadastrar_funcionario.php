@@ -6,17 +6,17 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
-    $rg = $_POST['rg'];
-    $nome = $_POST['nome'];
-    $data = $_POST['data'];
-    $hora = $_POST['hora'];
-    $salario = $_POST['salario'];
-    $cep = $_POST['cep'];
-    $cnes = $_POST['cnes'];
-    $dependente = $_POST['dependente'];
-    $rg_dependente = $_POST['rg_dependente'];
-    $parentesco = $_POST['parentesco'];
-    $senha = $_POST['senha'];
+    $rg = $db->escape($_POST['rg']);
+    $nome = $db->escape($_POST['nome']);
+    $data = $db->escape($_POST['data']);
+    $hora = $db->escape($_POST['hora']);
+    $salario = $db->escape($_POST['salario']);
+    $cep = $db->escape($_POST['cep']);
+    $cnes = $db->escape($_POST['cnes']);
+    $dependente = $db->escape($_POST['dependente']);
+    $rg_dependente = $db->escape($_POST['rg_dependente']);
+    $parentesco = $db->escape($_POST['parentesco']);
+    $senha = $db->escape($_POST['senha']);
 
     if(!isset($_POST['update'])) {
         $sql = "INSERT INTO FUNCIONARIO VALUES('".$rg."', '".$nome."', '".$data."', '".$hora."', '".$salario."', '".$cep."', '".$cnes."', '".$senha."');";
@@ -36,7 +36,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
     }
 
 } else if(isset($_POST['atualizar'])){
-    $rg = $_POST['atualizar'];
+    $rg = $db->escape($_POST['atualizar']);
 
     $sql = "SELECT funcionario.RG, funcionario.NOME, funcionario.DATA_NASC, funcionario.HORA_INICIO, funcionario.SALARIO, funcionario.CEP, funcionario.CNES_ESTABELEC, funcionario.SENHA, dependente.RG as RG_DEPENDENTE, dependente.NOME as NOME_DEPENDENTE, dependente.PARENTESCO FROM funcionario INNER JOIN dependente ON dependente.RG_FUNCIONARIO = funcionario.rg WHERE funcionario.RG = '".$rg."'";
     

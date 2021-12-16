@@ -6,11 +6,11 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['cnes']) && !isset($_POST['atualizar'])){
-    $nome_fantasia = $_POST['nome_fantasia'];
-    $razao_social = $_POST['razao_social'];
-    $cnpj = $_POST['cnpj'];
-    $cep = $_POST['cep'];
-    $cnes = $_POST['cnes'];
+    $nome_fantasia = $db->escape($_POST['nome_fantasia']);
+    $razao_social = $db->escape($_POST['razao_social']);
+    $cnpj = $db->escape($_POST['cnpj']);
+    $cep = $db->escape($_POST['cep']);
+    $cnes = $db->escape($_POST['cnes']);
 
 
     if(!isset($_POST['update'])) {
@@ -29,7 +29,7 @@ if(isset($_POST['cnes']) && !isset($_POST['atualizar'])){
     }
 
 } else if(isset($_POST['atualizar'])){
-    $cnes = $_POST['atualizar'];
+    $cnes = $db->escape($_POST['atualizar']);
 
     $sql = "SELECT * FROM ESTABELECIMENTO WHERE CNES = '".$cnes."';";
     

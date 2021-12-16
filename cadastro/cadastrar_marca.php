@@ -6,8 +6,8 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['nome']) && !isset($_POST['atualizar'])){
-    $nome = $_POST['nome'];
-    $numero_doses = $_POST['numero_doses'];
+    $nome = $db->escape($_POST['nome']);
+    $numero_doses = $db->escape($_POST['numero_doses']);
 
     if(!isset($_POST['update'])) {
         $sql = "INSERT INTO MARCA(NOME, NUMERO_DOSES) VALUES('".$nome."', '".$numero_doses."');";
@@ -25,7 +25,7 @@ if(isset($_POST['nome']) && !isset($_POST['atualizar'])){
     }
 
 } else if(isset($_POST['atualizar'])){
-    $id_marca = $_POST['atualizar'];
+    $id_marca = $db->escape($_POST['atualizar']);
 
     $sql = "SELECT * FROM MARCA WHERE ID_MARCA = '".$id_marca."';";
     

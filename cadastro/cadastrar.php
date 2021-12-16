@@ -6,14 +6,14 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
-    $rg = $_POST['rg'];
-    $nome = $_POST['nome'];
-    $data = $_POST['data'];
-    $etnia = $_POST['etnia'];
-    $genero = $_POST['genero'];
-    $nacionalidade = $_POST['nacionalidade'];
-    $cep = $_POST['cep'];
-    $senha = $_POST['senha'];
+    $rg = $db->escape($_POST['rg']);
+    $nome = $db->escape($_POST['nome']);
+    $data = $db->escape($_POST['data']);
+    $etnia = $db->escape($_POST['etnia']);
+    $genero = $db->escape($_POST['genero']);
+    $nacionalidade = $db->escape($_POST['nacionalidade']);
+    $cep = $db->escape($_POST['cep']);
+    $senha = $db->escape($_POST['senha']);
 
     if(!isset($_POST['update'])) {
         $sql = "INSERT INTO PACIENTE VALUES('".$rg."', '".$nome."', '".$data."', '".$etnia."', '".$genero."', '".$nacionalidade."', '".$cep."', '".$senha."');";
@@ -31,7 +31,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
     }
 
 } else if(isset($_POST['atualizar'])){
-    $rg = $_POST['atualizar'];
+    $rg = $db->escape($_POST['atualizar']);
 
     $sql = "select * from PACIENTE where RG = '".$rg."'";
     

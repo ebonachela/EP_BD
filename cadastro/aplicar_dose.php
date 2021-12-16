@@ -13,10 +13,10 @@ if(isset($_POST['lote'])){
     $resultado = mysqli_query($connect, "SELECT ID_MARCA FROM LOTE WHERE ID_LOTE = '".$lote."';"); 
     $dados = mysqli_fetch_array($resultado);
 
-    $marca = $dados['ID_MARCA'];
-    $data = $_POST['data'];
-    $numerodose = $_POST['numerodose'];
-    $rgpaciente = $_POST['rgpaciente'];
+    $marca = $db->escape($dados['ID_MARCA']);
+    $data = $db->escape($_POST['data']);
+    $numerodose = $db->escape($_POST['numerodose']);
+    $rgpaciente = $db->escape($_POST['rgpaciente']);
 
     $sql = "INSERT INTO APLICACAO_DOSE (NUMERO_VACINA, ID_LOTE, ID_MARCA, DATA_APLICACAO, NUMERO_DOSE, RG_PACIENTE, RG_FUNCIONARIO) VALUES('1', '".$lote."', '".$marca."', '".$data."', '".$numerodose."', '".$rgpaciente."', '".$_SESSION['RG']."');";
 

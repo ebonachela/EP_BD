@@ -19,9 +19,9 @@ if(isset($_SESSION["TIPO"])){
 
 if(isset($_POST['rg'])){
     
-    $uname = $_POST['rg'];
-    $password = $_POST['senha'];
-    $conta = $_POST['conta'];
+    $uname = $db->escape($_POST['rg']);
+    $password = $db->escape($_POST['senha']);
+    $conta = $db->escape($_POST['conta']);
     $tipo = null;
 
     if($conta == 'Paciente'){

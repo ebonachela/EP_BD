@@ -6,9 +6,9 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['cnpj']) && !isset($_POST['atualizar'])){
-    $nome = $_POST['nome'];
-    $cnpj = $_POST['cnpj'];
-    $cep = $_POST['cep'];
+    $nome = $db->escape($_POST['nome']);
+    $cnpj = $db->escape($_POST['cnpj']);
+    $cep = $db->escape($_POST['cep']);
 
 
     if(!isset($_POST['update'])) {
@@ -27,7 +27,7 @@ if(isset($_POST['cnpj']) && !isset($_POST['atualizar'])){
     }
 
 } else if(isset($_POST['atualizar'])){
-    $cnes = $_POST['atualizar'];
+    $cnes = $db->escape($_POST['atualizar']);
 
     $sql = "SELECT * FROM FABRICANTE WHERE CNPJ = '".$cnes."';";
     
