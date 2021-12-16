@@ -71,16 +71,16 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
             <label for="etnia">Etnia:</label><br>
             <select name="etnia" id="etnia" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$etnia.'"' : ''; ?>>
                 <option value="negro">Negro</option>
-                <option value="nndigena">Indigena</option>
-                <option value="nranco">Branco</option>
-                <option value="nardo">Pardo</option>
-                <option value="nutro">Outro</option>
+                <option value="indigena">Indigena</option>
+                <option value="branco">Branco</option>
+                <option value="pardo">Pardo</option>
+                <option value="outro">Outro</option>
             </select><br>
 
             <label for="genero">Gênero:</label><br>
             <select name="genero" id="genero" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$genero.'"' : ''; ?>>
                 <option value="mulher">Mulher</option>
-                <option value="momem">Homem</option>
+                <option value="homem">Homem</option>
                 <option value="outro">Outro</option>
                 <option value="prefiro não dizer">Prefiro não dizer</option>
             </select><br>
