@@ -52,22 +52,43 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
 ?>
 
 <html>
+    <style>
+        body { 
+            text-align: center; 
+        }
+
+        #containerentrar{
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+    </style>
+
     <body>
 
-        <p>Cadastrar Paciente</p>
-
+        <h2 style="text-align: center; margin-top: 20px">Cadastrar Paciente</h2>
+        
         <form method="POST" action="#">
             <label for="rg">RG:</label><br>
-            <input type="text" id="rg" name="rg" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$rg.'"' : ''; ?>><br>
+            <input class="item" type="text" id="rg" name="rg" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$rg.'"' : ''; ?>><br>
 
             <label for="nome">Nome Completo:</label><br>
-            <input type="text" id="nome" name="nome" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nome.'"' : ''; ?>><br>
+            <input class="item" type="text" id="nome" name="nome" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nome.'"' : ''; ?>><br>
 
             <label for="data">Data de Nascimento:</label><br>
-            <input type="text" id="data" name="data" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$data.'"' : ''; ?>><br>
+            <input class="item" type="text" id="data" name="data" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$data.'"' : ''; ?>><br>
 
             <label for="etnia">Etnia:</label><br>
-            <select name="etnia" id="etnia" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$etnia.'"' : ''; ?>>
+            <select class="item" name="etnia" id="etnia" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$etnia.'"' : ''; ?>>
                 <option value="negro">Negro</option>
                 <option value="indigena">Indigena</option>
                 <option value="branco">Branco</option>
@@ -76,7 +97,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
             </select><br>
 
             <label for="genero">Gênero:</label><br>
-            <select name="genero" id="genero" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$genero.'"' : ''; ?>>
+            <select class="item" name="genero" id="genero" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$genero.'"' : ''; ?>>
                 <option value="mulher">Mulher</option>
                 <option value="homem">Homem</option>
                 <option value="outro">Outro</option>
@@ -84,20 +105,24 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
             </select><br>
 
             <label for="nacionalidade">Nacionalidade:</label><br>
-            <select name="nacionalidade" id="nacionalidade" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nacionalidade.'"' : ''; ?>>
+            <select class="item" name="nacionalidade" id="nacionalidade" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nacionalidade.'"' : ''; ?>>
                 <option value="Brasileiro">Brasileiro</option>
                 <option value="Estrangeiro">Estrangeiro</option>
             </select><br>
 
             <label for="cep">CEP:</label><br>
-            <input type="text" id="cep" name="cep" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cep.'"' : ''; ?>><br>
+            <input class="item" type="text" id="cep" name="cep" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cep.'"' : ''; ?>><br>
 
             <label for="senha">Senha:</label><br>
-            <input type="password" id="senha" name="senha" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$senha.'"' : ''; ?>><br>
+            <input class="item" type="password" id="senha" name="senha" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$senha.'"' : ''; ?>><br>
 
-            <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
+            <div id="containerentrar">
+                <input id="entrarinput" type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
+            </div>
         </form>
-
-        <button onclick="window.location.href='../index.php'">Voltar</button>
+        
+        <div>
+            <button onclick="window.location.href='../index.php'">Voltar</button>
+        </div>
     </body>
 </html>
