@@ -1,12 +1,9 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "vacinacao";
+require_once('../api/db.php');
 
-$connect = mysqli_connect($host, $user, $password, $db);
-mysqli_set_charset($connect,"utf8mb4");
+$db = new dbClass();
+$connect = $db->conectar();
 
 session_start();
 

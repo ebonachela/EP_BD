@@ -1,11 +1,9 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "vacinacao";
+require_once('../api/db.php');
 
-$connect = mysqli_connect($host, $user, $password, $db);
+$db = new dbClass();
+$connect = $db->conectar();
 
 session_start();
 
