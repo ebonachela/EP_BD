@@ -8,7 +8,7 @@ $db = "vacinacao";
 $connect = mysqli_connect($host, $user, $password, $db);
 mysqli_set_charset($connect,"utf8mb4");
 
-if(isset($_POST['CNPJ_FABRIC']) && !isset($_POST['atualizar'])){
+if(isset($_POST['cnpj_fabric']) && !isset($_POST['atualizar'])){
     $id_marca = $_POST['id_marca'];
     $validade = $_POST['validade'];
     $data_fabric = $_POST['data_fabric'];
@@ -16,7 +16,7 @@ if(isset($_POST['CNPJ_FABRIC']) && !isset($_POST['atualizar'])){
 
 
     if(!isset($_POST['update'])) {
-        $sql = "INSERT INTO LOTE VALUES('".$id_marca."', '".$validade."', '".$data_fabric."', '".$cnpj_fabric."');";
+        $sql = "INSERT INTO LOTE (ID_MARCA, VALIDADE, DATA_FABRIC, CNPJ_FABRIC) VALUES('".$id_marca."', '".$validade."', '".$data_fabric."', '".$cnpj_fabric."');";
     } else {
         $id_lote = isset($_POST['id_lote']);
         $sql = "UPDATE LOTE SET ID_MARCA = '".$id_marca."', VALIDADE = '".$validade."', DATA_FABRIC = '".$data_fabric."', CNPJ_FABRIC = '".$cnpj_fabric."' WHERE ID_LOTE = '".$id_lote."';";
