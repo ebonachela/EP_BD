@@ -13,10 +13,10 @@ if(isset($_POST['cnpj_fabric']) && !isset($_POST['atualizar'])){
 
 
     if(!isset($_POST['update'])) {
-        $sql = "INSERT INTO LOTE (ID_MARCA, VALIDADE, DATA_FABRIC, CNPJ_FABRIC) VALUES('".$id_marca."', '".$validade."', '".$data_fabric."', '".$cnpj_fabric."');";
+        $sql = "INSERT INTO lote (ID_MARCA, VALIDADE, DATA_FABRIC, CNPJ_FABRIC) VALUES('".$id_marca."', '".$validade."', '".$data_fabric."', '".$cnpj_fabric."');";
     } else {
         $id_lote = isset($_POST['id_lote']);
-        $sql = "UPDATE LOTE SET ID_MARCA = '".$id_marca."', VALIDADE = '".$validade."', DATA_FABRIC = '".$data_fabric."', CNPJ_FABRIC = '".$cnpj_fabric."' WHERE ID_LOTE = '".$id_lote."';";
+        $sql = "UPDATE lote SET ID_MARCA = '".$id_marca."', VALIDADE = '".$validade."', DATA_FABRIC = '".$data_fabric."', CNPJ_FABRIC = '".$cnpj_fabric."' WHERE ID_LOTE = '".$id_lote."';";
     }
 
     if(mysqli_query($connect, $sql)){
@@ -30,7 +30,7 @@ if(isset($_POST['cnpj_fabric']) && !isset($_POST['atualizar'])){
 } else if(isset($_POST['atualizar'])){
     $id_lote = $db->escape($_POST['atualizar']);
 
-    $sql = "SELECT * FROM LOTE WHERE ID_LOTE = '".$id_lote."';";
+    $sql = "SELECT * FROM lote WHERE ID_LOTE = '".$id_lote."';";
     
     $result = mysqli_query($connect, $sql); 
 
@@ -99,7 +99,7 @@ if(isset($_POST['cnpj_fabric']) && !isset($_POST['atualizar'])){
             <label for="cnpj_fabric">Fabricante:</label><br>
             <select class="item" name="cnpj_fabric" id="cnpj_fabric" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cnpj_fabric.'"' : ''; ?>>
                 <?php 
-                    $resultado = mysqli_query($connect, "SELECT * FROM FABRICANTE ORDER BY NOME"); 
+                    $resultado = mysqli_query($connect, "SELECT * FROM fabricante ORDER BY NOME"); 
 
                     if($resultado){
                         while($linha = $resultado->fetch_assoc()) {

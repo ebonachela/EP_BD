@@ -16,9 +16,9 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
     $senha = $db->escape($_POST['senha']);
 
     if(!isset($_POST['update'])) {
-        $sql = "INSERT INTO PACIENTE VALUES('".$rg."', '".$nome."', '".$data."', '".$etnia."', '".$genero."', '".$nacionalidade."', '".$cep."', '".$senha."');";
+        $sql = "INSERT INTO paciente VALUES('".$rg."', '".$nome."', '".$data."', '".$etnia."', '".$genero."', '".$nacionalidade."', '".$cep."', '".$senha."');";
     } else {
-        $sql = "UPDATE PACIENTE SET NOME = '".$nome."', DATA_NASC = '".$data."', ETNIA = '".$etnia."', GENERO = '".$genero."', NACIONALIDADE = '".$nacionalidade."', CEP = '".$cep."', senha = '".$senha."' WHERE RG = '".$rg."'";
+        $sql = "UPDATE paciente SET NOME = '".$nome."', DATA_NASC = '".$data."', ETNIA = '".$etnia."', GENERO = '".$genero."', NACIONALIDADE = '".$nacionalidade."', CEP = '".$cep."', senha = '".$senha."' WHERE RG = '".$rg."'";
     }
 
     if(mysqli_query($connect, $sql)){
@@ -33,7 +33,7 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
 } else if(isset($_POST['atualizar'])){
     $rg = $db->escape($_POST['atualizar']);
 
-    $sql = "select * from PACIENTE where RG = '".$rg."'";
+    $sql = "select * from paciente where RG = '".$rg."'";
     
     $result = mysqli_query($connect, $sql); 
 

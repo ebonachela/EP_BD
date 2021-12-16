@@ -10,7 +10,7 @@ session_start();
 if(isset($_POST['lote'])){
     $lote = $_POST['lote'];
 
-    $resultado = mysqli_query($connect, "SELECT ID_MARCA FROM LOTE WHERE ID_LOTE = '".$lote."';"); 
+    $resultado = mysqli_query($connect, "SELECT ID_MARCA FROM lote WHERE ID_LOTE = '".$lote."';"); 
     $dados = mysqli_fetch_array($resultado);
 
     $marca = $db->escape($dados['ID_MARCA']);
@@ -18,7 +18,7 @@ if(isset($_POST['lote'])){
     $numerodose = $db->escape($_POST['numerodose']);
     $rgpaciente = $db->escape($_POST['rgpaciente']);
 
-    $sql = "INSERT INTO APLICACAO_DOSE (NUMERO_VACINA, ID_LOTE, ID_MARCA, DATA_APLICACAO, NUMERO_DOSE, RG_PACIENTE, RG_FUNCIONARIO) VALUES('1', '".$lote."', '".$marca."', '".$data."', '".$numerodose."', '".$rgpaciente."', '".$_SESSION['RG']."');";
+    $sql = "INSERT INTO aplicacao_dose (NUMERO_VACINA, ID_LOTE, ID_MARCA, DATA_APLICACAO, NUMERO_DOSE, RG_PACIENTE, RG_FUNCIONARIO) VALUES('1', '".$lote."', '".$marca."', '".$data."', '".$numerodose."', '".$rgpaciente."', '".$_SESSION['RG']."');";
 
     if(mysqli_query($connect, $sql)){
         echo ' Aplicação realizada com sucesso! ';
@@ -64,7 +64,7 @@ if(isset($_POST['lote'])){
             <label for="lote">ID Lote:</label><br>
             <select class="item" name="lote" id="lote" style="width: 170px">
                 <?php 
-                    $resultado = mysqli_query($connect, "SELECT * FROM LOTE ORDER BY ID_LOTE"); 
+                    $resultado = mysqli_query($connect, "SELECT * FROM lote ORDER BY ID_LOTE"); 
 
                     if($resultado){
                         while($linha = $resultado->fetch_assoc()) {

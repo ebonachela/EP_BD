@@ -25,9 +25,9 @@ if(isset($_POST['rg'])){
     $tipo = null;
 
     if($conta == 'Paciente'){
-        $tipo = 'PACIENTE';
+        $tipo = 'paciente';
     } else {
-        $tipo = 'FUNCIONARIO';
+        $tipo = 'funcionario';
     }
     
     $sql = "select * from ".$tipo." where RG = '".$uname."' AND senha = '".$password."' limit 1";

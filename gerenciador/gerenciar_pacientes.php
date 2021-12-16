@@ -59,7 +59,7 @@ session_start();
                 </tr>
 
                 <?php
-                    $resultado = mysqli_query($connect, "SELECT * FROM PACIENTE ORDER BY NOME"); 
+                    $resultado = mysqli_query($connect, "SELECT * FROM paciente ORDER BY NOME"); 
 
                     if($resultado){
                         while($linha = $resultado->fetch_assoc()) {

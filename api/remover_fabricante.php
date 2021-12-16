@@ -6,7 +6,7 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['remover'])){
-    $sql = "DELETE FROM FABRICANTE WHERE CNPJ = '".$db->escape($_POST['remover'])."'";
+    $sql = "DELETE FROM fabricante WHERE CNPJ = '".$db->escape($_POST['remover'])."'";
     
     $result = mysqli_query($connect, $sql);
 

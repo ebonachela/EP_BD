@@ -19,12 +19,12 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
     $senha = $db->escape($_POST['senha']);
 
     if(!isset($_POST['update'])) {
-        $sql = "INSERT INTO FUNCIONARIO VALUES('".$rg."', '".$nome."', '".$data."', '".$hora."', '".$salario."', '".$cep."', '".$cnes."', '".$senha."');";
-        $sql2 = "INSERT INTO DEPENDENTE VALUES('".$rg_dependente."', '".$dependente."', '".$parentesco."');";
+        $sql = "INSERT INTO funcionario VALUES('".$rg."', '".$nome."', '".$data."', '".$hora."', '".$salario."', '".$cep."', '".$cnes."', '".$senha."');";
+        $sql2 = "INSERT INTO dependente VALUES('".$rg_dependente."', '".$dependente."', '".$parentesco."');";
     } else {
         $saferg = isset($_POST['update']);
-        $sql = "UPDATE FUNCIONARIO SET NOME = '".$nome."', DATA_NASC = '".$data."', HORA_INICIO = '".$hora."', SALARIO = '".$salario."', CEP = '".$cep."', CNES_ESTABELEC = '".$cnes."', SENHA = '".$senha."' WHERE RG = '".$rg."';";
-        $sql2 = "UPDATE DEPENDENTE SET RG = '".$rg_dependente."', NOME = '".$dependente."', PARENTESCO = '".$parentesco."' WHERE RG_FUNCIONARIO = '".$rg."';";
+        $sql = "UPDATE funcionario SET NOME = '".$nome."', DATA_NASC = '".$data."', HORA_INICIO = '".$hora."', SALARIO = '".$salario."', CEP = '".$cep."', CNES_ESTABELEC = '".$cnes."', SENHA = '".$senha."' WHERE RG = '".$rg."';";
+        $sql2 = "UPDATE dependente SET RG = '".$rg_dependente."', NOME = '".$dependente."', PARENTESCO = '".$parentesco."' WHERE RG_FUNCIONARIO = '".$rg."';";
     }
 
     if(mysqli_query($connect, $sql) && mysqli_query($connect, $sql2)){

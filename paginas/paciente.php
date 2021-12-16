@@ -50,7 +50,7 @@ session_start();
         <div>
             <table>
                 <?php 
-                    $sql = "SELECT * FROM PACIENTE WHERE RG = '".$_SESSION['RG']."'";
+                    $sql = "SELECT * FROM paciente WHERE RG = '".$_SESSION['RG']."'";
                 
                     $result = mysqli_query($connect, $sql);
 

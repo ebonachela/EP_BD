@@ -12,10 +12,10 @@ if(isset($_POST['cnpj']) && !isset($_POST['atualizar'])){
 
 
     if(!isset($_POST['update'])) {
-        $sql = "INSERT INTO FABRICANTE VALUES('".$nome."', '".$cnpj."', '".$cep."');";
+        $sql = "INSERT INTO fabricante VALUES('".$nome."', '".$cnpj."', '".$cep."');";
     } else {
         $saferg = isset($_POST['update']);
-        $sql = "UPDATE FABRICANTE SET NOME = '".$nome."', CEP = '".$cep."' WHERE CNPJ = '".$cnpj."';";
+        $sql = "UPDATE fabricante SET NOME = '".$nome."', CEP = '".$cep."' WHERE CNPJ = '".$cnpj."';";
     }
 
     if(mysqli_query($connect, $sql)){
@@ -29,7 +29,7 @@ if(isset($_POST['cnpj']) && !isset($_POST['atualizar'])){
 } else if(isset($_POST['atualizar'])){
     $cnes = $db->escape($_POST['atualizar']);
 
-    $sql = "SELECT * FROM FABRICANTE WHERE CNPJ = '".$cnes."';";
+    $sql = "SELECT * FROM fabricante WHERE CNPJ = '".$cnes."';";
     
     $result = mysqli_query($connect, $sql); 
 

@@ -58,7 +58,7 @@ session_start();
                 </tr>
 
                 <?php
-                    $resultado = mysqli_query($connect, "SELECT * FROM FABRICANTE ORDER BY NOME"); 
+                    $resultado = mysqli_query($connect, "SELECT * FROM fabricante ORDER BY NOME"); 
 
                     if($resultado){
                         while($linha = $resultado->fetch_assoc()) {
@@ -98,7 +98,7 @@ session_start();
                 </tr>
 
                 <?php
-                    $resultado = mysqli_query($connect, "SELECT * FROM MARCA ORDER BY ID_MARCA"); 
+                    $resultado = mysqli_query($connect, "SELECT * FROM marca ORDER BY ID_MARCA"); 
 
                     if($resultado){
                         while($linha = $resultado->fetch_assoc()) {

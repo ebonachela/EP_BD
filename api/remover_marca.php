@@ -6,7 +6,7 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['remover'])){
-    $sql = "DELETE FROM MARCA WHERE ID_MARCA = '".$db->escape($_POST['remover'])."'";
+    $sql = "DELETE FROM marca WHERE ID_MARCA = '".$db->escape($_POST['remover'])."'";
     
     $result = mysqli_query($connect, $sql);
 

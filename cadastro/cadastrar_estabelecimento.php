@@ -14,10 +14,10 @@ if(isset($_POST['cnes']) && !isset($_POST['atualizar'])){
 
 
     if(!isset($_POST['update'])) {
-        $sql = "INSERT INTO ESTABELECIMENTO VALUES('".$cnes."', '".$razao_social."', '".$cnpj."', '".$cep."', '".$nome_fantasia."');";
+        $sql = "INSERT INTO estabelecimento VALUES('".$cnes."', '".$razao_social."', '".$cnpj."', '".$cep."', '".$nome_fantasia."');";
     } else {
         $saferg = isset($_POST['update']);
-        $sql = "UPDATE ESTABELECIMENTO SET RAZAO_SOCIAL = '".$razao_social."', CNPJ = '".$cnpj."', CEP = '".$cep."', NOME_FANTASIA = '".$nome_fantasia."' WHERE CNES = '".$cnes."';";
+        $sql = "UPDATE estabelecimento SET RAZAO_SOCIAL = '".$razao_social."', CNPJ = '".$cnpj."', CEP = '".$cep."', NOME_FANTASIA = '".$nome_fantasia."' WHERE CNES = '".$cnes."';";
     }
 
     if(mysqli_query($connect, $sql)){
@@ -31,7 +31,7 @@ if(isset($_POST['cnes']) && !isset($_POST['atualizar'])){
 } else if(isset($_POST['atualizar'])){
     $cnes = $db->escape($_POST['atualizar']);
 
-    $sql = "SELECT * FROM ESTABELECIMENTO WHERE CNES = '".$cnes."';";
+    $sql = "SELECT * FROM estabelecimento WHERE CNES = '".$cnes."';";
     
     $result = mysqli_query($connect, $sql); 
 

@@ -58,7 +58,7 @@ session_start();
                 </tr>
 
                 <?php
-                    $resultado = mysqli_query($connect, "SELECT * FROM ESTABELECIMENTO ORDER BY NOME_FANTASIA"); 
+                    $resultado = mysqli_query($connect, "SELECT * FROM estabelecimento ORDER BY NOME_FANTASIA"); 
 
                     if($resultado){
                         while($linha = $resultado->fetch_assoc()) {

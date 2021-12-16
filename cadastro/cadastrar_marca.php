@@ -10,10 +10,10 @@ if(isset($_POST['nome']) && !isset($_POST['atualizar'])){
     $numero_doses = $db->escape($_POST['numero_doses']);
 
     if(!isset($_POST['update'])) {
-        $sql = "INSERT INTO MARCA(NOME, NUMERO_DOSES) VALUES('".$nome."', '".$numero_doses."');";
+        $sql = "INSERT INTO marca(NOME, NUMERO_DOSES) VALUES('".$nome."', '".$numero_doses."');";
     } else {
         $id_marca = $_POST['update'];
-        $sql = "UPDATE MARCA SET NOME = '".$nome."', NUMERO_DOSES = '".$numero_doses."' WHERE ID_MARCA = '".$id_marca."';";
+        $sql = "UPDATE marca SET NOME = '".$nome."', NUMERO_DOSES = '".$numero_doses."' WHERE ID_MARCA = '".$id_marca."';";
     }
 
     if(mysqli_query($connect, $sql)){
@@ -27,7 +27,7 @@ if(isset($_POST['nome']) && !isset($_POST['atualizar'])){
 } else if(isset($_POST['atualizar'])){
     $id_marca = $db->escape($_POST['atualizar']);
 
-    $sql = "SELECT * FROM MARCA WHERE ID_MARCA = '".$id_marca."';";
+    $sql = "SELECT * FROM marca WHERE ID_MARCA = '".$id_marca."';";
     
     $result = mysqli_query($connect, $sql); 
 

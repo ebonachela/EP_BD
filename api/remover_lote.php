@@ -6,7 +6,7 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['remover'])){
-    $sql = "DELETE FROM LOTE WHERE ID_LOTE = '".$db->escape($_POST['remover'])."'";
+    $sql = "DELETE FROM lote WHERE ID_LOTE = '".$db->escape($_POST['remover'])."'";
     
     $result = mysqli_query($connect, $sql);
 

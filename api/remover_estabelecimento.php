@@ -6,7 +6,7 @@ $db = new dbClass();
 $connect = $db->conectar();
 
 if(isset($_POST['remover'])){
-    $sql = "DELETE FROM ESTABELECIMENTO WHERE CNES = '".$db->escape($_POST['remover'])."'";
+    $sql = "DELETE FROM estabelecimento WHERE CNES = '".$db->escape($_POST['remover'])."'";
     
     $result = mysqli_query($connect, $sql);
 
