@@ -44,23 +44,53 @@ if(isset($_POST['cnpj']) && !isset($_POST['atualizar'])){
 ?>
 
 <html>
+    <style>
+        body { 
+            text-align: center; 
+        }
+
+        #containerentrar{
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center; 
+            margin-top: 20px"
+        }
+    </style>
+
     <body>
 
-        <p>Cadastrar Fabricante</p>
+        <h2>Cadastrar Fabricante</h2>
 
         <form method="POST" action="#">
             <label for="nome">Nome:</label><br>
-            <input type="text" id="nome" name="nome" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nome.'"' : ''; ?>><br>
+            <input class="item" type="text" id="nome" name="nome" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nome.'"' : ''; ?>><br>
 
             <label for="cnpj">CNPJ:</label><br>
-            <input type="text" id="cnpj" name="cnpj" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cnpj.'"' : ''; ?>><br>
+            <input class="item" type="text" id="cnpj" name="cnpj" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cnpj.'"' : ''; ?>><br>
 
             <label for="cep">CEP:</label><br>
-            <input type="text" id="cep" name="cep" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cep.'"' : ''; ?>><br>
+            <input class="item" type="text" id="cep" name="cep" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cep.'"' : ''; ?>><br>
 
-            <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
+            <div id="containerentrar">
+                <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
+            </div>
         </form>
 
-        <button onclick="window.location.href='../gerenciador/gerenciar_vacinas.php'">Voltar</button>
+        <div>
+            <button onclick="window.location.href='../gerenciador/gerenciar_vacinas.php'">Voltar</button>
+        </div>
     </body>
 </html>

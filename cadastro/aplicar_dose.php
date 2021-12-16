@@ -30,13 +30,39 @@ if(isset($_POST['lote'])){
 
 
 <html>
+    <style>
+        body { 
+            text-align: center; 
+        }
+
+        #containerentrar{
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center; 
+            margin-top: 20px"
+        }
+    </style>
+
     <body>
 
-        <p>Aplicar Dose</p>
+        <h2>Aplicar Dose</h2>
 
         <form method="POST" action="#">
             <label for="lote">ID Lote:</label><br>
-            <select name="lote" id="lote" style="width: 170px">
+            <select class="item" name="lote" id="lote" style="width: 170px">
                 <?php 
                     $resultado = mysqli_query($connect, "SELECT * FROM LOTE ORDER BY ID_LOTE"); 
 
@@ -49,18 +75,22 @@ if(isset($_POST['lote'])){
             </select><br>
 
             <label for="data">Data Aplicação:</label><br>
-            <input type="text" id="data" name="data"><br>
+            <input class="item" type="text" id="data" name="data"><br>
 
             <label for="numerodose">Número da Dose:</label><br>
-            <input type="text" id="numerodose" name="numerodose"><br>
+            <input class="item" type="text" id="numerodose" name="numerodose"><br>
 
             <label for="rgpaciente">RG Paciente:</label><br>
-            <input type="text" id="rgpaciente" name="rgpaciente"><br>
-
-            <input type="submit" value="Enviar">
+            <input class="item" type="text" id="rgpaciente" name="rgpaciente"><br>
+            
+            <div id="containerentrar">
+                <input type="submit" value="Enviar">
+            </div>
         </form>
-
-        <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
+        
+        <div>
+            <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
+        </div>
     </body>
 
 </html>

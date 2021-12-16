@@ -71,6 +71,11 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
         .item {
             margin-bottom: 10px;
         }
+
+        h2 {
+            text-align: center; 
+            margin-top: 20px"
+        }
     </style>
 
     <body>

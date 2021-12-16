@@ -46,13 +46,39 @@ if(isset($_POST['cnpj_fabric']) && !isset($_POST['atualizar'])){
 ?>
 
 <html>
+    <style>
+        body { 
+            text-align: center; 
+        }
+
+        #containerentrar{
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center; 
+            margin-top: 20px"
+        }
+    </style>
+
     <body>
 
-        <p>Cadastrar Lote</p>
+        <h2>Cadastrar Lote</h2>
 
         <form method="POST" action="#">
             <label for="id_marca">ID Marca:</label><br>
-            <select name="id_marca" id="id_marca" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$id_marca.'"' : ''; ?>>
+            <select class="item" name="id_marca" id="id_marca" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$id_marca.'"' : ''; ?>>
                 <?php 
                     $resultado = mysqli_query($connect, "SELECT * FROM marca ORDER BY ID_MARCA"); 
 
@@ -65,13 +91,13 @@ if(isset($_POST['cnpj_fabric']) && !isset($_POST['atualizar'])){
             </select><br>
 
             <label for="validade">Validade:</label><br>
-            <input type="text" id="validade" name="validade" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$validade.'"' : ''; ?>><br>
+            <input class="item" type="text" id="validade" name="validade" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$validade.'"' : ''; ?>><br>
 
             <label for="data_fabric">Data Fabricação:</label><br>
-            <input type="text" id="data_fabric" name="data_fabric" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$data_fabric.'"' : ''; ?>><br>
+            <input class="item" type="text" id="data_fabric" name="data_fabric" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$data_fabric.'"' : ''; ?>><br>
 
             <label for="cnpj_fabric">Fabricante:</label><br>
-            <select name="cnpj_fabric" id="cnpj_fabric" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cnpj_fabric.'"' : ''; ?>>
+            <select class="item" name="cnpj_fabric" id="cnpj_fabric" style="width: 170px" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cnpj_fabric.'"' : ''; ?>>
                 <?php 
                     $resultado = mysqli_query($connect, "SELECT * FROM FABRICANTE ORDER BY NOME"); 
 
@@ -82,10 +108,14 @@ if(isset($_POST['cnpj_fabric']) && !isset($_POST['atualizar'])){
                     }
                 ?>
             </select><br>
-
-            <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
+            
+            <div id="containerentrar">
+                <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
+            </div>
         </form>
-
-        <button onclick="window.location.href='../gerenciador/gerenciar_vacinas.php'">Voltar</button>
+        
+        <div>
+            <button onclick="window.location.href='../gerenciador/gerenciar_vacinas.php'">Voltar</button>
+        </div>
     </body>
 </html>

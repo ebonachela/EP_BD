@@ -48,29 +48,59 @@ if(isset($_POST['cnes']) && !isset($_POST['atualizar'])){
 ?>
 
 <html>
+    <style>
+        body { 
+            text-align: center; 
+        }
+
+        #containerentrar{
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center; 
+            margin-top: 20px"
+        }
+    </style>
+
     <body>
 
-        <p>Cadastrar Estabelecimento</p>
+        <h2>Cadastrar Estabelecimento</h2>
 
         <form method="POST" action="#">
             <label for="nome_fantasia">Nome fantasia:</label><br>
-            <input type="text" id="nome_fantasia" name="nome_fantasia" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nome_fantasia.'"' : ''; ?>><br>
+            <input class="item" type="text" id="nome_fantasia" name="nome_fantasia" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$nome_fantasia.'"' : ''; ?>><br>
 
             <label for="razao_social">Razão Social:</label><br>
-            <input type="text" id="razao_social" name="razao_social" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$razao_social.'"' : ''; ?>><br>
+            <input class="item" type="text" id="razao_social" name="razao_social" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$razao_social.'"' : ''; ?>><br>
 
             <label for="cnpj">CNPJ:</label><br>
-            <input type="text" id="cnpj" name="cnpj" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cnpj.'"' : ''; ?>><br>
+            <input class="item" type="text" id="cnpj" name="cnpj" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cnpj.'"' : ''; ?>><br>
 
             <label for="cep">CEP:</label><br>
-            <input type="text" id="cep" name="cep" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cep.'"' : ''; ?>><br>
+            <input class="item" type="text" id="cep" name="cep" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cep.'"' : ''; ?>><br>
 
             <label for="cnes">CNES:</label><br>
-            <input type="text" id="cnes" name="cnes" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cnes.'"' : ''; ?>><br>
+            <input class="item" type="text" id="cnes" name="cnes" <?php echo (isset($_POST['atualizar'])) ? 'value="'.$cnes.'"' : ''; ?>><br>
 
-            <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
+            <div id="containerentrar">
+                <input type="submit" value="Enviar" <?php echo (isset($_POST['atualizar'])) ? 'name="update"' : ''; ?>>
+            </div>
         </form>
 
-        <button onclick="window.location.href='../gerenciador/gerenciar_estabelecimentos.php'">Voltar</button>
+        <div>
+            <button onclick="window.location.href='../gerenciador/gerenciar_estabelecimentos.php'">Voltar</button>
+        </div>      
     </body>
 </html>
