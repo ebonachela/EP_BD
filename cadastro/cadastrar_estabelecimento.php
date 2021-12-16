@@ -21,7 +21,6 @@ if(isset($_POST['cnes']) && !isset($_POST['atualizar'])){
     }
 
     if(mysqli_query($connect, $sql)){
-        echo " Cadastro feito com sucesso! ";
         header("Location: ../gerenciador/gerenciar_estabelecimentos.php"); 
     } else {
         echo " Erro ao realizar cadastro! ";

@@ -28,7 +28,6 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
     }
 
     if(mysqli_query($connect, $sql) && mysqli_query($connect, $sql2)){
-        echo " Cadastro feito com sucesso! ";
         header("Location: ../gerenciador/gerenciar_funcionarios.php"); 
     } else {
         echo " Erro ao realizar cadastro! ";

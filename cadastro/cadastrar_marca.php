@@ -17,7 +17,6 @@ if(isset($_POST['nome']) && !isset($_POST['atualizar'])){
     }
 
     if(mysqli_query($connect, $sql)){
-        echo " Cadastro feito com sucesso! ";
         header("Location: ../gerenciador/gerenciar_vacinas.php"); 
     } else {
         echo " Erro ao realizar cadastro! ";

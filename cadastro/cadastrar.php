@@ -22,7 +22,6 @@ if(isset($_POST['rg']) && !isset($_POST['atualizar'])){
     }
 
     if(mysqli_query($connect, $sql)){
-        echo " Cadastro feito com sucesso! ";
         header("Location: ../gerenciador/gerenciar_pacientes.php"); 
         die();
     } else {
