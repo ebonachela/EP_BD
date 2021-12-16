@@ -44,6 +44,7 @@ session_start();
 
         <button onclick="window.location.href='../cadastro/cadastrar_fabricante.php'">Adicionar fabricantes</button>
         <button onclick="window.location.href='../cadastro/cadastrar_lote.php'">Adicionar lotes</button>
+        <button onclick="window.location.href='../cadastro/cadastrar_marca.php'">Adicionar marcas</button>
         <button onclick="window.location.href='../paginas/funcionario.php'">Voltar</button>
 
         <div>
@@ -75,6 +76,46 @@ session_start();
                                     </form>
                                     <form action="../api/remover_fabricante.php" method="post" style="display: inline;">
                                         <button name="remover" value="'.$linha['CNPJ'].'" style="margin-right: 5px">Remover</button>
+                                    </form>
+                                </td>';
+
+                            echo '</tr>';
+
+                        }
+                    }
+                ?>
+            </table>
+        </div>
+
+        <div>
+            <h3 style="text-align: center;">Lista de marcas</h3>
+
+            <table>
+                <tr>
+                    <th>ID Marca</th>
+                    <th>Nome</th>
+                    <th>Número de doses</th>
+                    <th>Ação</th>
+                </tr>
+
+                <?php
+                    $resultado = mysqli_query($connect, "SELECT * FROM MARCA ORDER BY ID_MARCA"); 
+
+                    if($resultado){
+                        while($linha = $resultado->fetch_assoc()) {
+
+                            echo '<tr>';
+                            echo '<td>'.$linha['ID_MARCA'].'</td>';
+                            echo '<td>'.$linha['NOME'].'</td>';
+                            echo '<td>'.$linha['NUMERO_DOSES'].'</td>';
+                            
+                            echo 
+                                '<td>
+                                    <form action="../cadastro/cadastrar_marca.php" method="post" style="display: inline;">
+                                        <button name="atualizar" value="'.$linha['ID_MARCA'].'" style="margin-right: 5px">Alterar</button>
+                                    </form>
+                                    <form action="../api/remover_marca.php" method="post" style="display: inline;">
+                                        <button name="remover" value="'.$linha['ID_MARCA'].'" style="margin-right: 5px">Remover</button>
                                     </form>
                                 </td>';
 
